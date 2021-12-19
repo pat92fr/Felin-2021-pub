@@ -1,0 +1,902 @@
+<?xml version="1.0"?>
+
+<!-- 
+    ############################################
+    ######              MEMO              ######
+    ############################################
+    x = front
+    y = left
+    z = up
+    
+    Origine is placed at geometry center by default
+-->
+
+<robot name="felin">
+	<link name="base_link"/>
+	<joint name="base_to_body" type="fixed">
+		<parent link="base_link"/>
+		<child link="body-base"/>
+	</joint> 
+
+    <!-- 
+    ############################################
+    ######              BODY              ######
+    ############################################
+    -->
+    <!--
+    ********************************************
+    ******              PARTS             ******
+    ********************************************
+    -->
+    <link name="body-base">
+        <visual>
+            <geometry>
+                <box size="0.148 0.180 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.148 0.210 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+        
+        <!--body-base-front-->
+        <visual>
+            <geometry>
+                <box size="0.156 0.070 0.110"/> 
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.152 0 0"/>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+           </material>                        
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.156 0.070 0.110"/> 
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.152 0 0"/>
+        </collision>
+
+        <!--body-base-rear-->
+        <visual>
+            <geometry>
+                <box size="0.156 0.070 0.110"/> 
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.152 0 0"/>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.156 0.070 0.110"/> 
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.152 0 0"/>
+        </collision>
+
+        <!--body-front-plate-->
+        <visual>
+            <geometry>
+                <box size="0.030 0.180 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.235 0 0"/>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.010 0.210 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.235 0 0"/>
+        </collision>
+
+        <!--body-rear-plate-->
+        <visual>
+            <geometry>
+                <box size="0.010 0.180 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.235 0 0"/>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.010 0.210 0.110"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.235 0 0"/>
+        </collision>
+
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.050 0 0"/>
+            <mass value="3"/> <!--3-->
+            <inertia ixx="0.02" ixy="0.0" ixz="0.0" iyy="0.03" iyz="0.0" izz="0.03"/>
+        </inertial>
+    </link>
+        
+
+
+    <!-- 
+    ############################################
+    ######              POD Front Right   ######
+    ############################################
+    -->
+    <!--
+    ********************************************
+    ******              PARTS             ******
+    ********************************************
+    -->
+    <link name="FR-pod">
+        <visual>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Green">
+                <color rgba="0 1.0 0.0 1.0"/>
+           </material>  
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.072 0 0"/>
+        </collision>
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.0003" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.0008"/>
+        </inertial>        
+    </link>
+    
+    <link name="FR-pod-front-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+    
+    <link name="FR-pod-rear-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FR-pod-front-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FR-pod-rear-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FR-pod-foot">
+        <visual>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </collision>
+        <contact>
+            <stiffness value="10000"/>
+            <damping value="1000"/>
+            <lateral_friction value="1"/>
+        </contact>   
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>           
+    </link>
+    
+    <!--
+    ********************************************
+    ******             JOINTS             ******
+    ********************************************
+    -->
+    <joint name="rj-body-base-to-FR-pod" type="revolute">
+        <parent link="body-base"/>
+        <child link="FR-pod"/>
+        <origin rpy="0 0 0" xyz="0.152 -0.070 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.25" upper="0.25" effort="100" velocity="1000"/>      
+    </joint>
+    
+    <joint name="rj-FR-pod-to-FR-pod-front-femur" type="revolute">
+        <parent link="FR-pod"/>
+        <child link="FR-pod-front-femur"/>
+        <origin rpy="0 0 0" xyz="0.031 -0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.75" upper="1.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-FR-pod-to-FR-pod-rear-femur" type="revolute">
+        <parent link="FR-pod"/>
+        <child link="FR-pod-rear-femur"/>
+        <origin rpy="0 0 0" xyz="-0.031 -0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="1.89" upper="3.89" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="rj-FR-pod-front-femur-FR-pod-front-tibia" type="revolute">
+        <parent link="FR-pod-front-femur"/>
+        <child link="FR-pod-front-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 -0.015 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0.2" upper="2.9" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="rj-FR-pod-rear-femur-FR-pod-rear-tibia" type="revolute">
+        <parent link="FR-pod-rear-femur"/>
+        <child link="FR-pod-rear-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 -0.030 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.9" upper="-0.2" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="fj-FR-pod-rear-tibia-to-FR-pod-foot" type="fixed">
+        <parent link="FR-pod-rear-tibia"/>
+        <child link="FR-pod-foot"/>
+        <origin rpy="0 0 0" xyz="0.180 0 -0.011"/>
+    </joint>
+
+    <!-- 
+    ############################################
+    ######              POD Rear Right   ######
+    ############################################
+    -->
+    <!--
+    ********************************************
+    ******              PARTS             ******
+    ********************************************
+    -->
+    <link name="RR-pod">
+        <visual>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Green">
+                <color rgba="0 1.0 0.0 1.0"/>
+           </material>  
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.072 0 0"/>
+        </collision>
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.0003" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.0008"/>
+        </inertial>          
+    </link>
+    
+    <link name="RR-pod-front-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+    
+    <link name="RR-pod-rear-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="RR-pod-front-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="RR-pod-rear-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="RR-pod-foot">
+        <visual>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </collision>
+        <contact>
+            <stiffness value="10000"/>
+            <damping value="1000"/>
+            <lateral_friction value="1"/>
+        </contact> 
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>                
+    </link>
+    
+    <!--
+    ********************************************
+    ******             JOINTS             ******
+    ********************************************
+    -->
+    <joint name="rj-body-base-to-RR-pod" type="revolute">
+        <parent link="body-base"/>
+        <child link="RR-pod"/>
+        <origin rpy="0 0 0" xyz="-0.152 -0.070 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.25" upper="0.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-RR-pod-to-RR-pod-front-femur" type="revolute">
+        <parent link="RR-pod"/>
+        <child link="RR-pod-front-femur"/>
+        <origin rpy="0 0 0" xyz="0.031 -0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.75" upper="1.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-RR-pod-to-RR-pod-rear-femur" type="revolute">
+        <parent link="RR-pod"/>
+        <child link="RR-pod-rear-femur"/>
+        <origin rpy="0 0 0" xyz="-0.031 -0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="1.89" upper="3.89" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="rj-RR-pod-front-femur-RR-pod-front-tibia" type="revolute">
+        <parent link="RR-pod-front-femur"/>
+        <child link="RR-pod-front-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 -0.015 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0.2" upper="2.9" effort="100" velocity="1000"/>        
+    </joint>
+
+    <joint name="rj-RR-pod-rear-femur-RR-pod-rear-tibia" type="revolute">
+        <parent link="RR-pod-rear-femur"/>
+        <child link="RR-pod-rear-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 -0.030 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.9" upper="-0.2" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="fj-RR-pod-rear-tibia-to-RR-pod-foot" type="fixed">
+        <parent link="RR-pod-rear-tibia"/>
+        <child link="RR-pod-foot"/>
+        <origin rpy="0 0 0" xyz="0.180 0 -0.011"/>
+    </joint>
+
+
+    <!-- 
+    ############################################
+    ######              POD Front Left   ######
+    ############################################
+    -->
+    <!--
+    ********************************************
+    ******              PARTS             ******
+    ********************************************
+    -->
+    <link name="FL-pod">
+        <visual>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Green">
+                <color rgba="0 1.0 0.0 1.0"/>
+           </material>  
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.072 0 0"/>
+        </collision>
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.0003" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.0008"/>
+        </inertial>          
+    </link>
+    
+    <link name="FL-pod-front-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+    
+    <link name="FL-pod-rear-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FL-pod-front-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FL-pod-rear-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="FL-pod-foot">
+        <visual>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </collision>
+        <contact>
+            <stiffness value="10000"/>
+            <damping value="1000"/>
+            <lateral_friction value="1"/>
+        </contact>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>                 
+    </link>
+    
+    <!--
+    ********************************************
+    ******             JOINTS             ******
+    ********************************************
+    -->
+    <joint name="rj-body-base-to-FL-pod" type="revolute">
+        <parent link="body-base"/>
+        <child link="FL-pod"/>
+        <origin rpy="0 0 0" xyz="0.152 0.070 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.25" upper="0.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-FL-pod-to-FL-pod-front-femur" type="revolute">
+        <parent link="FL-pod"/>
+        <child link="FL-pod-front-femur"/>
+        <origin rpy="0 0 0" xyz="0.031 0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.75" upper="1.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-FL-pod-to-FL-pod-rear-femur" type="revolute">
+        <parent link="FL-pod"/>
+        <child link="FL-pod-rear-femur"/>
+        <origin rpy="0 0 0" xyz="-0.031 0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="1.89" upper="3.89" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="rj-FL-pod-front-femur-FL-pod-front-tibia" type="revolute">
+        <parent link="FL-pod-front-femur"/>
+        <child link="FL-pod-front-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 0.015 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0.2" upper="2.9" effort="100" velocity="1000"/>        
+    </joint>
+
+    <joint name="rj-FL-pod-rear-femur-FL-pod-rear-tibia" type="revolute">
+        <parent link="FL-pod-rear-femur"/>
+        <child link="FL-pod-rear-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 0.030 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.9" upper="-0.2" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="fj-FL-pod-rear-tibia-to-FL-pod-foot" type="fixed">
+        <parent link="FL-pod-rear-tibia"/>
+        <child link="FL-pod-foot"/>
+        <origin rpy="0 0 0" xyz="0.180 0 -0.011"/>
+    </joint>
+
+
+    <!-- 
+    ############################################
+    ######              POD Rear Left    ######
+    ############################################
+    -->
+    <!--
+    ********************************************
+    ******              PARTS             ******
+    ********************************************
+    -->
+    <link name="RL-pod">
+        <visual>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Green">
+                <color rgba="0 1.0 0.0 1.0"/>
+           </material>  
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.144 0.050 0.070"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.072 0 0"/>
+        </collision>
+        <inertial>
+            <mass value="0.5"/>
+            <inertia ixx="0.0003" ixy="0.0" ixz="0.0" iyy="0.0008" iyz="0.0" izz="0.0008"/>
+        </inertial>          
+    </link>
+    
+    <link name="RL-pod-front-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+    
+    <link name="RL-pod-rear-femur">
+        <visual>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+            <material name="Red">
+                <color rgba="1.0 0 0 1.0"/>
+           </material>            
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.109 0.010 0.033"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.040 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="RL-pod-front-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>      
+    </link>
+
+    <link name="RL-pod-rear-tibia">
+        <visual>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+            <material name="Blue">
+                <color rgba="0 0 1.0 1.0"/>
+           </material>             
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.190 0.010 0.025"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.080 0 0"/>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>        
+    </link>
+
+    <link name="RL-pod-foot">
+        <visual>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <sphere radius="0.022"/>
+            </geometry>
+        </collision>
+        <contact>
+            <stiffness value="10000"/>
+            <damping value="1000"/>
+            <lateral_friction value="1"/>
+        </contact>   
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+        </inertial>
+
+    </link>
+    
+    <!--
+    ********************************************
+    ******             JOINTS             ******
+    ********************************************
+    -->
+    <joint name="rj-body-base-to-RL-pod" type="revolute">
+        <parent link="body-base"/>
+        <child link="RL-pod"/>
+        <origin rpy="0 0 0" xyz="-0.152 0.070 0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.25" upper="0.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-RL-pod-to-RL-pod-front-femur" type="revolute">
+        <parent link="RL-pod"/>
+        <child link="RL-pod-front-femur"/>
+        <origin rpy="0 0 0" xyz="0.031 0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.75" upper="1.25" effort="100" velocity="1000"/>
+    </joint>
+    
+    <joint name="rj-RL-pod-to-RL-pod-rear-femur" type="revolute">
+        <parent link="RL-pod"/>
+        <child link="RL-pod-rear-femur"/>
+        <origin rpy="0 0 0" xyz="-0.031 0.040 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="1.89" upper="3.89" effort="100" velocity="1000"/>
+    </joint>
+
+    <joint name="rj-RL-pod-front-femur-RL-pod-front-tibia" type="revolute">
+        <parent link="RL-pod-front-femur"/>
+        <child link="RL-pod-front-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 0.015 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="0.2" upper="2.9" effort="100" velocity="1000"/>  
+    </joint>
+
+    <joint name="rj-RL-pod-rear-femur-RL-pod-rear-tibia" type="revolute">
+        <parent link="RL-pod-rear-femur"/>
+        <child link="RL-pod-rear-tibia"/>
+        <origin rpy="0 0 0" xyz="0.08 0.030 0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-2.9" upper="-0.2" effort="100" velocity="1000"/>  
+    </joint>
+
+    <joint name="fj-RL-pod-rear-tibia-to-RL-pod-foot" type="fixed">
+        <parent link="RL-pod-rear-tibia"/>
+        <child link="RL-pod-foot"/>
+        <origin rpy="0 0 0" xyz="0.180 0 -0.011"/>
+    </joint>
+
+
+
+</robot>	

@@ -1,0 +1,80 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"body-base" [label="body-base"];
+"FL-pod" [label="FL-pod"];
+"FL-pod-front-femur" [label="FL-pod-front-femur"];
+"FL-pod-front-tibia" [label="FL-pod-front-tibia"];
+"FL-pod-rear-femur" [label="FL-pod-rear-femur"];
+"FL-pod-rear-tibia" [label="FL-pod-rear-tibia"];
+"FL-pod-foot" [label="FL-pod-foot"];
+"FR-pod" [label="FR-pod"];
+"FR-pod-front-femur" [label="FR-pod-front-femur"];
+"FR-pod-front-tibia" [label="FR-pod-front-tibia"];
+"FR-pod-rear-femur" [label="FR-pod-rear-femur"];
+"FR-pod-rear-tibia" [label="FR-pod-rear-tibia"];
+"FR-pod-foot" [label="FR-pod-foot"];
+"RL-pod" [label="RL-pod"];
+"RL-pod-front-femur" [label="RL-pod-front-femur"];
+"RL-pod-front-tibia" [label="RL-pod-front-tibia"];
+"RL-pod-rear-femur" [label="RL-pod-rear-femur"];
+"RL-pod-rear-tibia" [label="RL-pod-rear-tibia"];
+"RL-pod-foot" [label="RL-pod-foot"];
+"RR-pod" [label="RR-pod"];
+"RR-pod-front-femur" [label="RR-pod-front-femur"];
+"RR-pod-front-tibia" [label="RR-pod-front-tibia"];
+"RR-pod-rear-femur" [label="RR-pod-rear-femur"];
+"RR-pod-rear-tibia" [label="RR-pod-rear-tibia"];
+"RR-pod-foot" [label="RR-pod-foot"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_body" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_to_body" -> "body-base"
+"body-base" -> "rj-body-base-to-FL-pod" [label="xyz: 0.152 0.07 0 \nrpy: 0 -0 0"]
+"rj-body-base-to-FL-pod" -> "FL-pod"
+"FL-pod" -> "rj-FL-pod-to-FL-pod-front-femur" [label="xyz: 0.031 0.04 0 \nrpy: 0 -0 0"]
+"rj-FL-pod-to-FL-pod-front-femur" -> "FL-pod-front-femur"
+"FL-pod-front-femur" -> "rj-FL-pod-front-femur-FL-pod-front-tibia" [label="xyz: 0.08 0.015 0 \nrpy: 0 -0 0"]
+"rj-FL-pod-front-femur-FL-pod-front-tibia" -> "FL-pod-front-tibia"
+"FL-pod" -> "rj-FL-pod-to-FL-pod-rear-femur" [label="xyz: -0.031 0.04 0 \nrpy: 0 -0 0"]
+"rj-FL-pod-to-FL-pod-rear-femur" -> "FL-pod-rear-femur"
+"FL-pod-rear-femur" -> "rj-FL-pod-rear-femur-FL-pod-rear-tibia" [label="xyz: 0.08 0.03 0 \nrpy: 0 -0 0"]
+"rj-FL-pod-rear-femur-FL-pod-rear-tibia" -> "FL-pod-rear-tibia"
+"FL-pod-rear-tibia" -> "fj-FL-pod-rear-tibia-to-FL-pod-foot" [label="xyz: 0.18 0 -0.011 \nrpy: 0 -0 0"]
+"fj-FL-pod-rear-tibia-to-FL-pod-foot" -> "FL-pod-foot"
+"body-base" -> "rj-body-base-to-FR-pod" [label="xyz: 0.152 -0.07 0 \nrpy: 0 -0 0"]
+"rj-body-base-to-FR-pod" -> "FR-pod"
+"FR-pod" -> "rj-FR-pod-to-FR-pod-front-femur" [label="xyz: 0.031 -0.04 0 \nrpy: 0 -0 0"]
+"rj-FR-pod-to-FR-pod-front-femur" -> "FR-pod-front-femur"
+"FR-pod-front-femur" -> "rj-FR-pod-front-femur-FR-pod-front-tibia" [label="xyz: 0.08 -0.015 0 \nrpy: 0 -0 0"]
+"rj-FR-pod-front-femur-FR-pod-front-tibia" -> "FR-pod-front-tibia"
+"FR-pod" -> "rj-FR-pod-to-FR-pod-rear-femur" [label="xyz: -0.031 -0.04 0 \nrpy: 0 -0 0"]
+"rj-FR-pod-to-FR-pod-rear-femur" -> "FR-pod-rear-femur"
+"FR-pod-rear-femur" -> "rj-FR-pod-rear-femur-FR-pod-rear-tibia" [label="xyz: 0.08 -0.03 0 \nrpy: 0 -0 0"]
+"rj-FR-pod-rear-femur-FR-pod-rear-tibia" -> "FR-pod-rear-tibia"
+"FR-pod-rear-tibia" -> "fj-FR-pod-rear-tibia-to-FR-pod-foot" [label="xyz: 0.18 0 -0.011 \nrpy: 0 -0 0"]
+"fj-FR-pod-rear-tibia-to-FR-pod-foot" -> "FR-pod-foot"
+"body-base" -> "rj-body-base-to-RL-pod" [label="xyz: -0.152 0.07 0 \nrpy: 0 -0 0"]
+"rj-body-base-to-RL-pod" -> "RL-pod"
+"RL-pod" -> "rj-RL-pod-to-RL-pod-front-femur" [label="xyz: 0.031 0.04 0 \nrpy: 0 -0 0"]
+"rj-RL-pod-to-RL-pod-front-femur" -> "RL-pod-front-femur"
+"RL-pod-front-femur" -> "rj-RL-pod-front-femur-RL-pod-front-tibia" [label="xyz: 0.08 0.015 0 \nrpy: 0 -0 0"]
+"rj-RL-pod-front-femur-RL-pod-front-tibia" -> "RL-pod-front-tibia"
+"RL-pod" -> "rj-RL-pod-to-RL-pod-rear-femur" [label="xyz: -0.031 0.04 0 \nrpy: 0 -0 0"]
+"rj-RL-pod-to-RL-pod-rear-femur" -> "RL-pod-rear-femur"
+"RL-pod-rear-femur" -> "rj-RL-pod-rear-femur-RL-pod-rear-tibia" [label="xyz: 0.08 0.03 0 \nrpy: 0 -0 0"]
+"rj-RL-pod-rear-femur-RL-pod-rear-tibia" -> "RL-pod-rear-tibia"
+"RL-pod-rear-tibia" -> "fj-RL-pod-rear-tibia-to-RL-pod-foot" [label="xyz: 0.18 0 -0.011 \nrpy: 0 -0 0"]
+"fj-RL-pod-rear-tibia-to-RL-pod-foot" -> "RL-pod-foot"
+"body-base" -> "rj-body-base-to-RR-pod" [label="xyz: -0.152 -0.07 0 \nrpy: 0 -0 0"]
+"rj-body-base-to-RR-pod" -> "RR-pod"
+"RR-pod" -> "rj-RR-pod-to-RR-pod-front-femur" [label="xyz: 0.031 -0.04 0 \nrpy: 0 -0 0"]
+"rj-RR-pod-to-RR-pod-front-femur" -> "RR-pod-front-femur"
+"RR-pod-front-femur" -> "rj-RR-pod-front-femur-RR-pod-front-tibia" [label="xyz: 0.08 -0.015 0 \nrpy: 0 -0 0"]
+"rj-RR-pod-front-femur-RR-pod-front-tibia" -> "RR-pod-front-tibia"
+"RR-pod" -> "rj-RR-pod-to-RR-pod-rear-femur" [label="xyz: -0.031 -0.04 0 \nrpy: 0 -0 0"]
+"rj-RR-pod-to-RR-pod-rear-femur" -> "RR-pod-rear-femur"
+"RR-pod-rear-femur" -> "rj-RR-pod-rear-femur-RR-pod-rear-tibia" [label="xyz: 0.08 -0.03 0 \nrpy: 0 -0 0"]
+"rj-RR-pod-rear-femur-RR-pod-rear-tibia" -> "RR-pod-rear-tibia"
+"RR-pod-rear-tibia" -> "fj-RR-pod-rear-tibia-to-RR-pod-foot" [label="xyz: 0.18 0 -0.011 \nrpy: 0 -0 0"]
+"fj-RR-pod-rear-tibia-to-RR-pod-foot" -> "RR-pod-foot"
+}
